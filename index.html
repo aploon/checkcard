@@ -60,7 +60,7 @@
                 text_input1 = 'Your name *';
                 text_input2 = 'Your email *';
                 text_input3 = 'Your phone number *';
-                text_input4 = 'Select a refill';
+                text_input4 = 'Select a recharge';
                 text_input5 = 'Recharge code';
                 break;
             case 'fr':
@@ -115,8 +115,8 @@
                 text_input1 = 'Your name *';
                 text_input2 = 'Your email *';
                 text_input3 = 'Your phone number *';
-                text_input4 = 'Select a refill';
-                text_input5 = 'Refill code';
+                text_input4 = 'Select a recharge';
+                text_input5 = 'recharge code';
                 break;
         }
     </script>
@@ -163,11 +163,12 @@
             document.getElementById("text_head1").innerHTML = text_head1;
             document.getElementById("text_head2").innerHTML = text_head2;
 
-            document.getElementById("name").value = text_input1;
-            document.getElementById("email").value = text_input2;
-            document.getElementById("tel").value = text_input3;
+            // fill placeholder
+            document.getElementById("name").placeholder = text_input1;
+            document.getElementById("email").placeholder = text_input2;
+            document.getElementById("tel").placeholder = text_input3;
             document.getElementById("recharge").options[0].innerHTML = text_input4;
-            document.getElementById("recharge_value").value = text_input5;
+            document.getElementById("recharge_value").placeholder = text_input5;
         }
     </script>
 </head>
